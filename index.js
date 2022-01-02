@@ -26,7 +26,7 @@ async function run() {
     const database = client.db('HeroRiders');
 
     const servicesCollection = database.collection('services');
-   
+    const usersCollection = database.collection('users');
 
 
     app.get('/services', async (req, res) => {
@@ -77,6 +77,7 @@ app.delete('/services/:id', async (req, res) => {
 
 
 
+
 // // PUT: UPDATE specific service
 // app.put('/services/:id', async (req, res) => {
 //   const id = req.params.id;
@@ -93,6 +94,55 @@ app.delete('/services/:id', async (req, res) => {
 //   console.log('updating user', id);
 //   res.json(result);
 // })
+
+
+
+
+  // // admin user get
+  // app.get('/users/:email', async (req, res) => {
+  //   const email = req.params.email;
+  //   const query = { email: email };
+  //   const user = await usersCollection.findOne(query);
+  //   let isAdmin = false;
+  //   if (user?.role === 'admin') {
+  //     isAdmin = true;
+  //   }
+  //   res.json({ admin: isAdmin })
+  // })
+
+
+
+  // // users post
+  // app.post('/users', async (req, res) => {
+  //   const user = req.body;
+  //   const result = await usersCollection.insertOne(user);
+  //   console.log(result);
+  //   res.json(result);
+  // });
+
+
+
+  // // put user
+  // app.put('/users', async (req, res) => {
+  //   const user = req.body;
+  //   // console.log('put', user);
+  //   const filter = { email: user.email };
+  //   const options = { upsert: true };
+  //   const updateDoc = { $set: user };
+  //   const result = await usersCollection.updateOne(filter, updateDoc, options);
+  //   res.json(result);
+  // })
+
+
+  // // users admin put
+  // app.put('/users/admin', async (req, res) => {
+  //   const user = req.body;
+  //   console.log('put', user);
+  //   const filter = { email: user.email };
+  //   const updateDoc = { $set: { role: 'admin' } }
+  //   const result = await usersCollection.updateOne(filter, updateDoc);
+  //   res.json(result);
+  // })
 
 
 
